@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Curricular de Química y Farmacia UC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Malla Curricular de Química y Farmacia UC</h1>
+    
+    <div class="controls">
+        <button onclick="resetAll()">Reiniciar Malla</button>
+        <button onclick="completeAll()">Completar Todo</button>
+    </div>
+    
+    <!-- Semestre 1 -->
+    <div class="semester">
+        <div class="semester-title">Primer Semestre</div>
+        <div class="courses">
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="filosofia">Filosofía ¿Para Qué?</div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="lab-quimica-gen">Laboratorio de Química General</div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="intro-ciencias">Introducción a las ciencias farmacéuticas</div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="quimica-gen">Química General</div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="mundo-med">El mundo de los medicamentos</div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="precalculo">Precálculo</div>
+        </div>
+    </div>
+    
+    <!-- Semestre 2 -->
+    <div class="semester">
+        <div class="semester-title">Segundo Semestre</div>
+        <div class="courses">
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="quimica-gen2" data-reqs="lab-quimica-gen quimica-gen">
+                Química General II
+                <div class="prereq">Requisitos: Laboratorio de Química General y Química General</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="calculo1" data-reqs="precalculo">
+                Cálculo I
+                <div class="prereq">Requisitos: Precálculo</div>
+            </div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="fisica">
+                Física para ciencias
+            </div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="electivo1">
+                Electivo Formación General
+            </div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="electivo2">
+                Electivo Formación General
+            </div>
+        </div>
+    </div>
+    
+    <!-- Semestre 3 -->
+    <div class="semester">
+        <div class="semester-title">Tercer Semestre</div>
+        <div class="courses">
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="quimica-org1" data-reqs="quimica-gen2 intro-ciencias mundo-med">
+                Química Orgánica I
+                <div class="prereq">Requisitos: Química General II, Introducción a las ciencias farmacéuticas y El mundo de los medicamentos</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="botanica" data-reqs="intro-ciencias mundo-med">
+                Botánica y Farmacognosia
+                <div class="prereq">Requisitos: Introducción a las ciencias farmacéuticas y El mundo de los medicamentos</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="estadistica" data-reqs="calculo1">
+                Estadística para química y farmacia
+                <div class="prereq">Requisitos: Cálculo I</div>
+            </div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="biologia">
+                Biología de la célula
+            </div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="electivo3">
+                Electivo Formación General
+            </div>
+        </div>
+    </div>
+    
+    <!-- Semestre 4 -->
+    <div class="semester">
+        <div class="semester-title">Cuarto Semestre</div>
+        <div class="courses">
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="quimica-org2" data-reqs="quimica-org1">
+                Química Orgánica II
+                <div class="prereq">Requisitos: Química Orgánica I</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="quimica-analitica" data-reqs="quimica-gen2 estadistica">
+                Química Analítica
+                <div class="prereq">Requisitos: Química General II y Estadística para química y farmacia</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="fisiologia" data-reqs="biologia">
+                Fisiología
+                <div class="prereq">Requisitos: Biología de la célula</div>
+            </div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="electivo4">
+                Electivo Formación General
+            </div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="electivo5">
+                Electivo Formación General
+            </div>
+        </div>
+    </div>
+    
+    <!-- Semestre 5 -->
+    <div class="semester">
+        <div class="semester-title">Quinto Semestre</div>
+        <div class="courses">
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="lab-quimica-org" data-reqs="quimica-org2">
+                Laboratorio de química orgánica
+                <div class="prereq">Requisitos: Química Orgánica II</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="bioquimica" data-reqs="quimica-org2">
+                Bioquímica
+                <div class="prereq">Requisitos: Química Orgánica II</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="analisis-instr" data-reqs="quimica-analitica">
+                Análisis Instrumental
+                <div class="prereq">Requisitos: Química Analítica</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="quimica-fisica" data-reqs="quimica-analitica fisica calculo1">
+                Química-Física
+                <div class="prereq">Requisitos: Química Analítica, Física para ciencias y Cálculo I</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="fisiopatologia" data-reqs="fisiologia">
+                Fisiopatología
+                <div class="prereq">Requisitos: Fisiología</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Semestre 6 -->
+    <div class="semester">
+        <div class="semester-title">Sexto Semestre</div>
+        <div class="courses">
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="farmaco-quim1" data-reqs="lab-quimica-org">
+                Farmaco-química I
+                <div class="prereq">Requisitos: Laboratorio de química orgánica</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="farmacocinetica" data-reqs="quimica-fisica">
+                Farmacocinética y biofarmacia
+                <div class="prereq">Requisitos: Química-Física</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="farmacologia1" data-reqs="biologia fisiopatologia">
+                Farmacología I
+                <div class="prereq">Requisitos: Biología de la célula y Fisiopatología</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="microbiologia" data-reqs="biologia fisiologia">
+                Microbiología e inmunología
+                <div class="prereq">Requisitos: Biología de la célula y Fisiología</div>
+            </div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="electivo6">
+                Electivo Formación General
+            </div>
+        </div>
+    </div>
+    
+    <!-- Semestre 7 -->
+    <div class="semester">
+        <div class="semester-title">Séptimo Semestre</div>
+        <div class="courses">
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="farmaco-quim2" data-reqs="farmaco-quim1">
+                Farmaco-química II
+                <div class="prereq">Requisitos: Farmaco-química I</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="tecnologia-farm1" data-reqs="farmacocinetica analisis-instr">
+                Tecnología Farmacéutica I
+                <div class="prereq">Requisitos: Farmacocinética y biofarmacia y Análisis Instrumental</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="farmacologia2" data-reqs="farmacologia1 farmaco-quim1">
+                Farmacología II
+                <div class="prereq">Requisitos: Farmacología I y Farmaco-química I</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="bioquimica-clin" data-reqs="fisiopatologia farmacologia1 bioquimica">
+                Bioquímica Clínica
+                <div class="prereq">Requisitos: Fisiopatología, Farmacología I y Bioquímica</div>
+            </div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="electivo7">
+                Electivo Formación General
+            </div>
+        </div>
+    </div>
+    
+    <!-- Semestre 8 -->
+    <div class="semester">
+        <div class="semester-title">Octavo Semestre</div>
+        <div class="courses">
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="toxicologia" data-reqs="farmaco-quim2 farmacologia2">
+                Toxicología
+                <div class="prereq">Requisitos: Farmaco-química II y Farmacología II</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="tesis" data-reqs="tecnologia-farm1 farmacologia2">
+                Tesis de grado
+                <div class="prereq">Requisitos: Tecnología Farmacéutica I y Farmacología II</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Semestre 9 -->
+    <div class="semester">
+        <div class="semester-title">Noveno Semestre</div>
+        <div class="courses">
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="farmaco-quim3" data-reqs="farmaco-quim2">
+                Farmaco-química III
+                <div class="prereq">Requisitos: Farmaco-química II</div>
+            </div>
+            <div class="course locked corequisite" onclick="completeCourse(this)" 
+                 data-id="farmacia-clinica" data-reqs="farmacologia2" data-coreq="farmaco-quim3">
+                Farmacia Clínica y Atención Farmacéutica
+                <div class="prereq">Requisitos: Farmacología II (co-requisito: Farmaco-Química III)</div>
+            </div>
+            <div class="course locked corequisite" onclick="completeCourse(this)" 
+                 data-id="farmacologia3" data-reqs="farmacologia2" data-coreq="farmaco-quim3">
+                Farmacología III
+                <div class="prereq">Requisitos: Farmacología II (co-requisito: Farmaco-química III)</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="tecnologia-farm2" data-reqs="tecnologia-farm1">
+                Tecnología Farmacéutica II
+                <div class="prereq">Requisitos: Tecnología Farmacéutica I</div>
+            </div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="optativo1">
+                Optativo de Profundización
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="practica1" data-reqs="tecnologia-farm1 farmaco-quim2">
+                Práctica Profesional I
+                <div class="prereq">Requisitos: Tecnología Farmacéutica I y Farmaco-química II</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Semestre 10 -->
+    <div class="semester">
+        <div class="semester-title">Décimo Semestre</div>
+        <div class="courses">
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="salud-publica" data-reqs="farmacologia1">
+                Salud pública para Química y Farmacia
+                <div class="prereq">Requisitos: Farmacología I</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="internado" data-reqs="farmacologia3 farmacia-clinica">
+                Internado Clínico
+                <div class="prereq">Requisitos: Farmacología III y Farmacia Clínica y Atención Farmacéutica</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="farmacia-priv" data-reqs="farmaco-quim2">
+                Farmacia Privada
+                <div class="prereq">Requisitos: Farmaco-química II</div>
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="legislacion" data-reqs="farmaco-quim1">
+                Legislación y deontología farmacéutica
+                <div class="prereq">Requisitos: Farmaco-química I</div>
+            </div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="optativo2">
+                Optativo de profundización
+            </div>
+            <div class="course unlocked" onclick="completeCourse(this)" 
+                 data-id="optativo3">
+                Optativo de profundización
+            </div>
+            <div class="course locked" onclick="completeCourse(this)" 
+                 data-id="practica2" data-reqs="tecnologia-farm1 farmaco-quim2">
+                Práctica profesional II
+                <div class="prereq">Requisitos: Tecnología Farmacéutica I y Farmaco-química II</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
