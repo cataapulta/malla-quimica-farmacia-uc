@@ -22,7 +22,3 @@ Aplicación web interactiva que muestra la malla curricular de Química y Farmac
 - HTML5
 - CSS3
 - JavaScript Vanilla
-
-## Instalación
-
-Solo abre el archivo `index.html` en tu navegador. No se requieren dependencias adicionales.
