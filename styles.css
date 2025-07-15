@@ -1,0 +1,152 @@
+/* Estilos estáticos con paleta pastel rosado/morado suave */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px auto;
+    max-width: 1200px;
+    background-color: #fff9fb; /* Rosa blanquecino muy suave */
+    line-height: 1.5;
+    color: #5a4a6a; /* Morado grisáceo suave */
+}
+
+h1 {
+    color: #9c7bb7; /* Morado pastel medio */
+    text-align: center;
+    margin: 25px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0d6ff; /* Borde morado muy claro */
+    font-weight: 600;
+}
+
+.semester {
+    margin-bottom: 30px;
+    border: 1px solid #f0d6ff; /* Morado pastel muy claro */
+    padding: 15px;
+    border-radius: 12px;
+    background-color: #fffefe; /* Blanco con tono rosado */
+    box-shadow: 0 2px 8px rgba(220, 180, 240, 0.1); /* Sombra sutil */
+}
+
+.semester-title {
+    background-color: #e8c3ff; /* Morado pastel */
+    color: #6a3b6a; /* Morado oscuro suave */
+    padding: 12px 15px;
+    margin: -15px -15px 20px -15px;
+    border-radius: 10px 10px 0 0;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.courses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.course {
+    padding: 12px 16px;
+    background-color: #f8e5ff; /* Rosa morado muy pastel */
+    border-radius: 8px;
+    cursor: pointer;
+    color: #7a5a7a; /* Morado medio suave */
+    font-size: 0.92em;
+    min-width: 160px;
+    flex-grow: 1;
+    border: 1px solid #e8c3ff;
+    position: relative;
+}
+
+/* Estados de los cursos */
+.course.completed {
+    background-color: #ffebf3; /* Rosa pastel */
+    color: #8b5a7a; /* Morado rosado */
+    border-color: #ffcce6;
+}
+
+.course.locked {
+    background-color: #f3e5ff; /* Morado muy pastel */
+    color: #9d8dac; /* Morado grisáceo */
+    cursor: not-allowed;
+}
+
+.course.unlocked {
+    background-color: #ffe5ff; /* Rosa claro */
+    color: #8b5a8b; /* Morado medio */
+    border-left: 3px solid #d8a5ff; /* Acento morado */
+}
+
+.course.corequisite {
+    background-color: #f0e5ff; /* Morado lavanda pastel */
+    color: #6a5a8b; /* Morado azulado */
+}
+
+.prereq {
+    font-size: 0.75em;
+    color: #a98fb8; /* Morado claro */
+    margin-top: 6px;
+    line-height: 1.4;
+}
+
+.controls {
+    text-align: center;
+    margin: 25px 0;
+    padding: 15px 0;
+}
+
+button {
+    background-color: #d8a5ff; /* Morado pastel */
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 0 8px;
+    font-size: 0.9em;
+    transition: background-color 0.15s;
+}
+
+button:hover {
+    background-color: #c78aff; /* Morado un poco más intenso */
+}
+
+/* Indicadores visuales estáticos */
+.course.completed::after {
+    content: "✓";
+    position: absolute;
+    right: 12px;
+    color: #9c6a8c; /* Morado rosado */
+    font-weight: bold;
+}
+
+.course.unlocked::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 3px;
+    background-color: #d8a5ff; /* Morado pastel */
+    border-radius: 2px;
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .courses {
+        flex-direction: column;
+    }
+    
+    .course {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    button {
+        display: block;
+        width: 100%;
+        margin: 8px 0;
+    }
+}
